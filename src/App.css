@@ -1,0 +1,171 @@
+.cabecalho,
+main,
+.rodape {
+  width: min(1080px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 28px;
+  border-bottom: 1px solid #263247;
+}
+
+.marca {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.marca span,
+.destaque {
+  color: #5eead4;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #b8c5d8;
+}
+
+nav a:hover {
+  color: #5eead4;
+}
+
+.apresentacao {
+  padding-block: 100px 80px;
+}
+
+.destaque {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  max-width: 850px;
+  margin-bottom: 24px;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.resumo {
+  max-width: 650px;
+  margin-bottom: 32px;
+  color: #b8c5d8;
+  font-size: 1.15rem;
+}
+
+.botao {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #5eead4;
+  color: #0b1120;
+  font-weight: 700;
+}
+
+.botao:hover {
+  background: #99f6e4;
+}
+
+.secao {
+  padding-block: 40px;
+  border-top: 1px solid #263247;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+.secao p {
+  max-width: 760px;
+  color: #b8c5d8;
+}
+
+.competencias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.competencias li {
+  padding: 8px 16px;
+  border: 1px solid #334155;
+  border-radius: 999px;
+  background: #131e31;
+}
+
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 28px;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  background: #131e31;
+}
+
+.status {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #5eead4;
+  font-size: 0.85rem;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.card .tecnologias {
+  margin-bottom: 0;
+  color: #5eead4;
+  font-size: 0.9rem;
+}
+
+.rodape {
+  padding-block: 30px;
+  border-top: 1px solid #263247;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.rodape p {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 640px) {
+  .cabecalho {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  nav {
+    gap: 12px 18px;
+    font-size: 0.9rem;
+  }
+
+  .apresentacao {
+    padding-block: 64px;
+  }
+}
+
+.competencias li {
+  background: var(--roxo-suave);
+  color: var(--roxo);
+}
+
+.card {
+  box-shadow: 0 8px 24px rgb(40 35 51 / 5%);
+}
