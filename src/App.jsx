@@ -1,8 +1,6 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
+
+const anoAtual = new Date().getFullYear()
 
 const competencias = [
   'Google Cloud',
@@ -40,20 +38,55 @@ function App() {
 
       <main id="inicio">
         <section className="apresentacao" aria-labelledby="titulo">
-          <p className="destaque">SOFTWARE · CLOUD · APIs</p>
+          <div className="apresentacao-texto">
+            <p className="destaque">OLÁ, EU SOU FERNANDO</p>
 
-          <h1 id="titulo">
-            Tecnologia para conectar pessoas e soluções.
-          </h1>
+            <h1 id="titulo">
+              Engenharia de software.
+              <span>Cloud & APIs.</span>
+            </h1>
 
-          <p className="resumo">
-            Sou Luiz Fernando de Carvalho, engenheiro de software com
-            atuação em Google Cloud, Apigee e integração de APIs.
-          </p>
+            <p className="resumo">
+              Sou Luiz Fernando de Carvalho. Trabalho com Google Cloud,
+              Apigee e integrações para conectar sistemas e transformar
+              necessidades em soluções.
+            </p>
 
-          <a className="botao" href="#projetos">
-            Conheça meus projetos
-          </a>
+            <div className="acoes">
+              <a className="botao" href="#projetos">
+                Explorar projetos <span aria-hidden="true">↗</span>
+              </a>
+
+              <a className="botao-secundario" href="#sobre">
+                Sobre mim
+              </a>
+            </div>
+
+            <div className="assinatura-tecnica">
+              <span>Google Cloud</span>
+              <span>Apigee</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+
+          <div
+            className="retrato"
+            role="img"
+            aria-label="Monograma de Fernando Carvalho"
+          >
+            <span className="retrato-detalhe" aria-hidden="true">
+              &lt;/&gt;
+            </span>
+
+            <span className="monograma" aria-hidden="true">
+              FC
+            </span>
+
+            <div className="retrato-legenda" aria-hidden="true">
+              <strong>Fernando Carvalho</strong>
+              <span>Software · Cloud · APIs</span>
+            </div>
+          </div>
         </section>
 
         <section id="sobre" className="secao">
@@ -101,7 +134,7 @@ function App() {
 
       <footer className="rodape">
         <p>
-          © {new Date().getFullYear()} Luiz Fernando de Carvalho
+          © {anoAtual} Luiz Fernando de Carvalho
         </p>
         <p>Feito com React e dedicação ao aprendizado.</p>
       </footer>
