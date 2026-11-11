@@ -24,3 +24,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Credenciais temporárias do GitHub Actions
+gha-creds-*.json
