@@ -1,31 +1,16 @@
+import { portfolio, socialLinks } from './data/portfolio'
 import './App.css'
 
 const anoAtual = new Date().getFullYear()
 
-const competencias = [
-  'Google Cloud',
-  'Apigee',
-  'Integração de APIs',
-  'JavaScript',
-  'Governança de IA',
-]
-
-const projetos = [
-  {
-    titulo: 'Meu portfólio pessoal',
-    descricao:
-      'Construção de um site com React e JavaScript, com publicação planejada no Firebase Hosting.',
-    tecnologias: 'React • Vite • Firebase Hosting',
-    status: 'Em desenvolvimento',
-  },
-]
+const { nome, apresentacao, sobre, competencias, projetos } = portfolio
 
 function App() {
   return (
     <>
       <header className="cabecalho">
         <a className="marca" href="#inicio">
-          Fernando Carvalho<span>.</span>
+          {nome.exibicao}<span>.</span>
         </a>
 
         <nav aria-label="Navegação principal">
@@ -39,17 +24,15 @@ function App() {
       <main id="inicio">
         <section className="apresentacao" aria-labelledby="titulo">
           <div className="apresentacao-texto">
-            <p className="destaque">OLÁ, EU SOU FERNANDO</p>
+            <p className="destaque">{apresentacao.destaque}</p>
 
             <h1 id="titulo">
-              Engenharia de software.
-              <span>Cloud & APIs.</span>
+              {apresentacao.titulo}
+              <span>{apresentacao.subtitulo}</span>
             </h1>
 
             <p className="resumo">
-              Sou Luiz Fernando de Carvalho. Trabalho com Google Cloud,
-              Apigee e integrações para conectar sistemas e transformar
-              necessidades em soluções.
+              {apresentacao.resumo}
             </p>
 
             <div className="acoes">
@@ -63,28 +46,28 @@ function App() {
             </div>
 
             <div className="assinatura-tecnica">
-              <span>Google Cloud</span>
-              <span>Apigee</span>
-              <span>JavaScript</span>
+              {apresentacao.assinaturaTecnica.map((item) => (
+                <span key={item.id}>{item.label}</span>
+              ))}
             </div>
           </div>
 
           <div
             className="retrato"
             role="img"
-            aria-label="Monograma de Fernando Carvalho"
+            aria-label={`Monograma de ${nome.exibicao}`}
           >
             <span className="retrato-detalhe" aria-hidden="true">
               &lt;/&gt;
             </span>
 
             <span className="monograma" aria-hidden="true">
-              FC
+              {nome.monograma}
             </span>
 
             <div className="retrato-legenda" aria-hidden="true">
-              <strong>Fernando Carvalho</strong>
-              <span>Software · Cloud · APIs</span>
+              <strong>{nome.exibicao}</strong>
+              <span>{apresentacao.legenda}</span>
             </div>
           </div>
         </section>
@@ -92,9 +75,7 @@ function App() {
         <section id="sobre" className="secao">
           <h2>Sobre mim</h2>
           <p>
-            Atuo com desenvolvimento de software e soluções em nuvem,
-            com foco em APIs e integrações. Este espaço reúne meus
-            projetos, aprendizados e experiências com tecnologia.
+            {sobre}
           </p>
         </section>
 
@@ -103,7 +84,7 @@ function App() {
 
           <ul className="competencias">
             {competencias.map((competencia) => (
-              <li key={competencia}>{competencia}</li>
+              <li key={competencia.id}>{competencia.label}</li>
             ))}
           </ul>
         </section>
@@ -113,7 +94,7 @@ function App() {
 
           <div className="projetos">
             {projetos.map((projeto) => (
-              <article className="card" key={projeto.titulo}>
+              <article className="card" key={projeto.id}>
                 <span className="status">{projeto.status}</span>
                 <h3>{projeto.titulo}</h3>
                 <p>{projeto.descricao}</p>
@@ -125,16 +106,25 @@ function App() {
 
         <section id="contato" className="secao">
           <h2>Vamos conversar?</h2>
-          <p>
-            Em breve, meus links para LinkedIn, Instagram, YouTube
-            e GitHub estarão disponíveis aqui.
-          </p>
+          {socialLinks.length > 0 ? (
+            <ul>
+              {socialLinks.map((link) => (
+                <li key={link.url}>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>{portfolio.contato.mensagem}</p>
+          )}
         </section>
       </main>
 
       <footer className="rodape">
         <p>
-          © {anoAtual} Luiz Fernando de Carvalho
+          © {anoAtual} {nome.completo}
         </p>
         <p>Feito com React e dedicação ao aprendizado.</p>
       </footer>
